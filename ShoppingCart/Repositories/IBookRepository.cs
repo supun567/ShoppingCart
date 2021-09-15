@@ -10,7 +10,7 @@ namespace ShoppingCart.Repositories
     {
         IEnumerable<Book> AllBooks { get; }
         
-        IEnumerable<Book> BooksWithDiscount { get; }
+        IEnumerable<Book> OnSale { get; }
 
         Book GetBookById(int id);
 

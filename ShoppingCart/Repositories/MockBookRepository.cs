@@ -62,7 +62,7 @@ namespace ShoppingCart.Repositories
             }
         };
 
-        public IEnumerable<Book> BooksWithDiscount => new List<Book> {
+        public IEnumerable<Book> OnSale=> new List<Book> {
             new Book
             {
                 Id=101,

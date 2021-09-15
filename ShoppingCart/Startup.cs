@@ -10,6 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using ShoppingCart.Models;
 using ShoppingCart.Repositories;
+using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.EntityFrameworkCore;
+using ShoppingCart.Data;
 
 namespace ShoppingCart
 {
@@ -25,9 +28,18 @@ namespace ShoppingCart
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IBookRepository, MockBookRepository>();
-            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
-            services.AddScoped<IAuthorRepository, MockAuthorRepository>();
+            string conString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<EFContext>(options => options.UseSqlServer(conString));
+
+            //Changing from mock to ef
+            //services.AddScoped<IBookRepository, MockBookRepository>();
+            //services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            //services.AddScoped<IAuthorRepository, MockAuthorRepository>();
+
+            services.AddScoped<IBookRepository,EFBookRepository>();
+            services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+            services.AddScoped<IAuthorRepository, EFAuthorRepository>();
+
             services.AddControllersWithViews();
         }
 

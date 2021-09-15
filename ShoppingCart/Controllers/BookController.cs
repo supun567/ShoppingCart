@@ -28,7 +28,7 @@ namespace ShoppingCart.Controllers
 
         public ViewResult OnSale()
         {
-            return View(_bookRepo.BooksWithDiscount);
+            return View(_bookRepo.OnSale);
         }
 
         #region CodeToBeDisposed

@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using ShoppingCart.Models;
 using ShoppingCart.Repositories;
 
-namespace ShoppingCartDemo.Controllers
+namespace ShoppingCart.Controllers
 {
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepo;
-        
-        public BookController(IBookRepository bookRepo)
+        private readonly ICategoryRepository _categoryRepo;
+        private readonly IAuthorRepository _authorRepo;
+
+        public BookController(IBookRepository bookRepo, ICategoryRepository categoryRepo, IAuthorRepository authorRepo)
         {
             _bookRepo = bookRepo;
-           
+            _categoryRepo = categoryRepo;
+            _authorRepo = authorRepo;
         }
 
         public ViewResult Catalog()

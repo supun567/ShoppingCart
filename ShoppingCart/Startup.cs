@@ -26,6 +26,8 @@ namespace ShoppingCart
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IBookRepository, MockBookRepository>();
+            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+            services.AddScoped<IAuthorRepository, MockAuthorRepository>();
             services.AddControllersWithViews();
         }
 

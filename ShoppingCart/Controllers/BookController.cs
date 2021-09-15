@@ -31,6 +31,13 @@ namespace ShoppingCart.Controllers
             return View(_bookRepo.OnSale);
         }
 
+        public IActionResult Details(int id)
+        {
+            var book = _bookRepo.GetBookById(id);
+
+            return View(book);
+        }
+
         #region CodeToBeDisposed
         //public ViewResult ByCategory()
         //{

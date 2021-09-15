@@ -29,7 +29,7 @@ namespace ShoppingCart.Repositories
 
         public Book GetBookByCategory(string categoryDescription)
         {
-            return _dbContext.Books.FirstOrDefault(b => b.Category == categoryDescription);
+            return _dbContext.Books.FirstOrDefault(b => b.Category== categoryDescription);
         }
 
         public Book GetBookById(int id)

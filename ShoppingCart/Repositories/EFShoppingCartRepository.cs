@@ -79,7 +79,7 @@ namespace ShoppingCart.Repositories
             return this.ShoppingCartItems;
         }
 
-        public decimal GetShopiingCartTotal()
+        public decimal GetShoppingCartTotal()
         {
             return _dbContext.ShoppingCartItems
                 .Where(c => c.ShoppingCartId == this.ShoppingCartId)

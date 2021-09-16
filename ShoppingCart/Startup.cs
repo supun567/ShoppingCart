@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using ShoppingCart.Data;
 
+
 namespace ShoppingCart
 {
     public class Startup
@@ -39,6 +40,9 @@ namespace ShoppingCart
             services.AddScoped<IBookRepository,EFBookRepository>();
             services.AddScoped<ICategoryRepository, EFCategoryRepository>();
             services.AddScoped<IAuthorRepository, EFAuthorRepository>();
+            services.AddScoped<EFShoppingCartRepository>(s => EFShoppingCartRepository.GetShoppingCart(s));
+            services.AddHttpContextAccessor();
+            services.AddSession();
 
             services.AddControllersWithViews();
         }
@@ -58,6 +62,8 @@ namespace ShoppingCart
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

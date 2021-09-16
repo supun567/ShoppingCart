@@ -23,8 +23,8 @@
                             <p class="card-text">@book.Author</p>
                             <p class="card-text font-weight-bold">CAD$ @book.Price</p>
                             <div class="align-content-center align-items-center">
-                                <a asp-route-id="@book.Id" asp-action="Details" asp-controller="book" class="btn btn-primary text-white">More Details</a>
-                                <a asp-route-id="" asp-action="BookPurchased" asp-controller="book" class="btn btn-primary">Buy It</a>
+                                <a asp-action="Details" asp-controller="Book" asp-route-id="@book.Id" class="btn btn-primary text-white">More Details</a>
+                                <a asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-Id="@book.Id" class="btn btn-primary">Buy It</a>
                             </div>
                         </div>
                     </div>

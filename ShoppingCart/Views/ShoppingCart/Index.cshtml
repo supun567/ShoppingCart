@@ -1,0 +1,23 @@
+﻿@model EFShoppingCartRepository
+    
+<h2>Shopping Cart</h2>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>Book Title</th>
+        <th>Unit Price</th>
+    </tr>
+
+    @foreach (var cartItem in Model.ShoppingCartItems)
+    {
+<tr>
+    <td class="text-left">@cartItem.Book.Title</td>
+    <td class="text-right">@cartItem.Book.Price</td>
+</tr>
+    }
+
+<tr>
+    <th><b>Total</b></th>
+    <th><b>@Model.GetShopiingCartTotal()</b></th>
+</tr>
+</table>

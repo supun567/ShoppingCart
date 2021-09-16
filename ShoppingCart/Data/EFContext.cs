@@ -17,6 +17,8 @@ namespace ShoppingCart.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<ShoppingCartItem> ShoppingCartItems{ get; set; }
+
 
     }
 }

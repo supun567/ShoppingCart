@@ -27,9 +27,9 @@ namespace ShoppingCart.Controllers
             return View(_cartRepo);
         }
 
-        public RedirectToActionResult AddToShoppingCart(int bookId)
+        public RedirectToActionResult AddToShoppingCart(int Id)
         {
-            var selectedBook = _bookRepo.GetBookById(bookId);
+            var selectedBook = _bookRepo.GetBookById(Id);
 
             if (selectedBook != null)
             {
@@ -39,9 +39,9 @@ namespace ShoppingCart.Controllers
             return RedirectToAction("Index");
         }
 
-        public RedirectToActionResult RemoveFromShoppingCart(int bookId)
+        public RedirectToActionResult RemoveFromShoppingCart(int Id)
         {
-            var selectedBook = _bookRepo.GetBookById(bookId);
+            var selectedBook = _bookRepo.GetBookById(Id);
 
             if (selectedBook != null)
             {

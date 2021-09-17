@@ -5,7 +5,8 @@
 <table class="table table-bordered">
     <tr>
         <th>Book Title</th>
-        <th>Unit Price</th>
+        <th class="text-right">Unit Price</th>
+        <th class="text-center"><p>Remove (X)</p></th>
     </tr>
 
     @foreach (var cartItem in Model.ShoppingCartItems)
@@ -13,12 +14,13 @@
 <tr>
     <td class="text-left">@cartItem.Book.Title</td>
     <td class="text-right">@cartItem.Book.Price</td>
+    <td class="text-center"><a asp-route-id="@cartItem.Book.Id" asp-action="RemoveFromShoppingCart" asp-controller="ShoppingCart" class="btn btn-warning">Remove</a></td>
 </tr>
     }
 
 <tr>
     <th><b>Total</b></th>
-    <th><b>@Model.GetShoppingCartTotal()</b></th>
+    <th class="text-right"><b>@Model.GetShoppingCartTotal()</b></th>
 </tr>
 </table>
 <hr />

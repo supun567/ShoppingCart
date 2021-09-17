@@ -102,5 +102,10 @@ namespace ShoppingCart.Repositories
         {
             return AllBooks.FirstOrDefault(c => c.Isbn == isbn);
         }
+
+        public List<Book> GetBooksOfAuthor(string fullName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

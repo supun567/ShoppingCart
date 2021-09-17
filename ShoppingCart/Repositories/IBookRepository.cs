@@ -17,5 +17,7 @@ namespace ShoppingCart.Repositories
         Book GetBookByIsbn(string isbn);
 
         Book GetBookByCategory(string categoryDescription);
+
+        List<Book> GetBooksOfAuthor(string fullName);
     }
 }

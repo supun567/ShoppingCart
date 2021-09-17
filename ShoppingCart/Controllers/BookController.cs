@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ShoppingCart.Models;
 using ShoppingCart.Repositories;
+using ShoppingCart.ViewModels;
 
 namespace ShoppingCart.Controllers
 {
@@ -36,6 +37,15 @@ namespace ShoppingCart.Controllers
             var book = _bookRepo.GetBookById(id);
 
             return View(book);
+        }
+
+        public ViewResult ByAuthor(string name)
+        {
+            return View(new BooksByAuthorVM
+            {
+                Books = _bookRepo.GetBooksOfAuthor(name),
+                AuthorName = name
+            });
         }
 
         #region CodeToBeDisposed

@@ -41,5 +41,11 @@ namespace ShoppingCart.Repositories
         {
             return _dbContext.Books.FirstOrDefault(b => b.Isbn == isbn);
         }
+
+
+        public List<Book> GetBooksOfAuthor(string name)
+        {
+            return _dbContext.Books.Where(b => b.Author == name).ToList();
+        }
     }
 }
